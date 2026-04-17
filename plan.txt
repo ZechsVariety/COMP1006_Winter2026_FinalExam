@@ -10,7 +10,7 @@
 - DONE upload image and title (success/error messages too)
 - DONE view all images and titles
 
-- IF ADMIN: delete image and title record
+- WIP IF ADMIN: delete image and title record
 
 - final edits (once-over of requirements)
 
