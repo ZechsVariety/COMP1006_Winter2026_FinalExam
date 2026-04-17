@@ -10,3 +10,5 @@
 
 <a href="login.php">Login</a>
 <br>
+
+<a href="postImage.php">Post Image</a>

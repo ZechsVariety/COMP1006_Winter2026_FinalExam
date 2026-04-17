@@ -6,7 +6,7 @@
 - DONE log in to account
 - DONE indicate you're logged in
 
-- form with image and title
+- DONE form with image and title
 - upload image and title (success/error messages too)
 - view all images and titles
 
