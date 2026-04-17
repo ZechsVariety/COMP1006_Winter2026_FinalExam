@@ -12,7 +12,7 @@
 
 - DONE IF ADMIN: delete image and title record
 
-- log out
+- DONE log out
 
 - final edits (once-over of requirements)
 
