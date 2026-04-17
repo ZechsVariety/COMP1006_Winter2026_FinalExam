@@ -7,12 +7,12 @@
 - DONE indicate you're logged in
 
 - DONE form with image and title
-- upload image and title (success/error messages too)
+- DONE upload image and title (success/error messages too)
 - view all images and titles
 
 - IF ADMIN: delete image and title record
 
-- final edits
+- final edits (once-over of requirements)
 
 - deploy to production server (add files and databases)
 
