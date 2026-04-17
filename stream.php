@@ -27,7 +27,8 @@
         //show each post
         foreach($posts as $post) {
             echo("<h3>" . $post["title"] . "</h3>
-                <img src='" . $post["imagePath"] . "' alt='2nd most awesome secret' height='100px'>");
+                <img src='" . $post["imagePath"] . "' alt='2nd most awesome secret' height='100px'>
+                <a href='deleteImage.php?id=" . $post['id'] . "' role='button' onclick=\"return confirm('Are you sure you want to delete " . $post['title'] . "?');\">Delete</a>");
         }
     }
 
