@@ -7,11 +7,19 @@
     //form submitted
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         //grab form data
+        $username = trim(filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS));
         $email = trim(filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL));
         $password = $_POST["password"] ?? "";
         $confirmPass = $_POST["confirmPass"] ?? "";
     
         //validate
+
+        //username
+
+        //blank
+        if ($username == "") {
+            $errors[] = "Please enter a username.";
+        }
 
         //email
 
@@ -45,17 +53,18 @@
 
         //user already exists
         if(empty($errors)) {
-            $sql = "SELECT id FROM usersF WHERE email = :email";
+            $sql = "SELECT id FROM usersF WHERE username = :username OR email = :email";
 
             $stmt = $pdo->prepare($sql);
 
-            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(":username", $username);
+            $stmt->bindParam(":email", $email);
 
             $stmt->execute();
 
             //if the statement returns values, the email/username already exists
             if ($stmt->fetch()) {
-                $errors[] = "Email already in use.";
+                $errors[] = "Username or email already in use.";
             }
         }
 
@@ -64,16 +73,17 @@
             //hash password
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-            $sql = "INSERT INTO usersF (email, password) VALUES (:email, :hashedPassword)";
+            $sql = "INSERT INTO usersF (username, email, password) VALUES (:username, :email, :hashedPassword)";
             
             $stmt = $pdo->prepare($sql);
 
+            $stmt->bindParam(':username', $username);
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':hashedPassword', $hashedPassword);
 
             $stmt->execute();
 
-            $success = "Welcome, <em>" . $email . "</em>! You may now log in below.";
+            $success = "Welcome, <em>" . $username . "</em>! You may now log in below.";
         }
     }
 
@@ -98,6 +108,9 @@
 <h1>Register</h1>
 
 <form id="registerForm" method="post">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" required>
+
     <label for="email">Email</label>
     <input type="text" id="email" name="email" required>
 

@@ -7,20 +7,16 @@
     //form submitted
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         //grab form data
-        $email = trim(filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL));
+        $usernameOrEmail = trim($_POST["usernameOrEmail"] ?? "");
         $password = $_POST["password"] ?? "";
     
         //validate
 
-        //email
+        //username or email
 
         //blank
-        if($email == "") {
-            $errors[] = "Please enter an email.";
-        }
-        //format
-        elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $errors[] = "'" . $email . "' is an invalid email address.";
+        if ($usernameOrEmail == "") {
+            $errors[] = "Please enter a username or email.";
         }
 
         //password
@@ -32,12 +28,12 @@
 
         //try to login
         if(empty($errors)) {
-            //find corresponding datablock based on username
-            $sql = "SELECT id, email, password FROM usersF WHERE email = :email LIMIT 1";
+            //find corresponding datablock based on username/email
+            $sql = "SELECT id, username, email, password FROM usersF WHERE username = :usernameOrEmail OR email = :usernameOrEmail LIMIT 1";
             
             $stmt = $pdo->prepare($sql);
 
-            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(":usernameOrEmail", $usernameOrEmail);
 
             $stmt->execute();
 
@@ -50,7 +46,7 @@
 
                 //set session id and username
                 $_SESSION["id"] = $user["id"];
-                $_SESSION["email"] = $user["email"];
+                $_SESSION["username"] = $user["username"];
 
                 //go to index
                 header("Location: index.php");
@@ -77,8 +73,8 @@
 <h1>Login</h1>
 
 <form id="loginForm" method="post">
-    <label for="email">Email</label>
-    <input type="text" id="email" name="email" required>
+    <label for="usernameOrEmail">Username or Email</label>
+    <input type="text" id="usernameOrEmail" name="usernameOrEmail" required>
 
     <label for="password">Password</label>
     <input type="password" id="password" name="password" required>
@@ -86,7 +82,7 @@
     <button type="submit">Login</button>
 </form>
 
-<p>Don't have an account? <a href="login.php">Register</a></p>
+<p>Don't have an account? <a href="register.php">Register</a></p>
 
 <?php
     include "includes/footer.php";

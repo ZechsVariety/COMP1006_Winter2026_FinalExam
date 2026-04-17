@@ -2,7 +2,7 @@
 <br>
 <br>
 
-<p>All pages:</p>
+<p>All pages (in order of creation):</p>
 
 <a href="index.php">Home</a>
 <br>
@@ -17,3 +17,6 @@
 <br>
 
 <a href="stream.php">Image Stream</a>
+<br>
+
+<a href="logout.php">Logout</a>

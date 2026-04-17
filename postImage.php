@@ -8,7 +8,6 @@
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         //grab form data
         $title = trim(filter_input(INPUT_POST, "title", FILTER_SANITIZE_SPECIAL_CHARS));
-        $password = $_POST["password"] ?? "";
     
         //validate
 

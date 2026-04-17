@@ -8,7 +8,7 @@ create table postsF (
 create table usersF (
     id int auto_increment primary key,
 
-    -- ommitted username because its not required
+    username varchar(50) not null,
     email varchar(100) not null,
     password varchar(255) not null
 );

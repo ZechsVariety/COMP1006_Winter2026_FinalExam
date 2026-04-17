@@ -14,7 +14,8 @@
 
 - DONE log out
 
-- final edits (once-over of requirements)
+- DONE final edits (once-over of requirements)
+- DONE ^ fix lack of username
 
 - deploy to production server (add files and databases)
 
