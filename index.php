@@ -4,4 +4,6 @@
 
 <p>hi</p>
 
-<a href="register.php">Register</a>
+<?php
+    include "includes/footer.php";
+?>

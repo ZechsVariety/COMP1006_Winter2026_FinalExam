@@ -30,6 +30,35 @@
             $errors[] = "Please enter a password.";
         }
 
+        //try to login
+        if(empty($errors)) {
+            //find corresponding datablock based on username
+            $sql = "SELECT id, email, password FROM usersF WHERE email = :email LIMIT 1";
+            
+            $stmt = $pdo->prepare($sql);
+
+            $stmt->bindParam(':email', $email);
+
+            $stmt->execute();
+
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            //check if the passwords match
+            if($user && password_verify($password, $user['password'])) {
+                //regenerate session id
+                session_regenerate_id(true);
+
+                //set session id and username
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['username'] = $user['username'];
+
+                //go to index
+                header("Location: index.php");
+                exit;
+            } else {
+                $errors[] = "Invalid password.";
+            }
+        }
     }
 
     //display errors
@@ -42,11 +71,6 @@
         }
 
         echo("</ul>");
-    }
-
-    if($success != "") {
-        echo("<h2>Success!</h2>
-            <p>" . $success . "</p>");
     }
 ?>
 
@@ -63,3 +87,7 @@
 </form>
 
 <p>Don't have an account? <a href="login.php">Register</a></p>
+
+<?php
+    include "includes/footer.php";
+?>

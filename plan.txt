@@ -3,7 +3,7 @@
 - DONE connect to database
 - DONE register form
 - DONE register account (no empty fields, valid email, show success/error messages)
-- WIP log in to account
+- DONE log in to account
 
 - form with image and title
 - upload image and title (success/error messages too)

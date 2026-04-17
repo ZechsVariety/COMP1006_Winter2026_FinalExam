@@ -110,4 +110,8 @@
     <button type="submit">Register</button>
 </form>
 
-<a href="login.php">Login</a>
+<p>Already have an account? <a href="login.php">Login</a></p>
+
+<?php
+    include "includes/footer.php";
+?>
