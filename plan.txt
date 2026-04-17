@@ -8,7 +8,7 @@
 
 - DONE form with image and title
 - DONE upload image and title (success/error messages too)
-- view all images and titles
+- DONE view all images and titles
 
 - IF ADMIN: delete image and title record
 

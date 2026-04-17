@@ -12,3 +12,6 @@
 <br>
 
 <a href="postImage.php">Post Image</a>
+<br>
+
+<a href="stream.php">Image Stream</a>
