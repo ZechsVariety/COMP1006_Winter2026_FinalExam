@@ -1,5 +1,6 @@
 - DONE set up databases
 
+- DONE connect to database
 - register account (no empty fields, valid email)
 - log in to account
 
