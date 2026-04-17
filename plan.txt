@@ -1,0 +1,16 @@
+- set up databases
+
+- register account (no empty fields, valid email)
+- log in to account
+
+- form with image and title
+- upload image and title (success/error messages too)
+- view all images and titles
+
+- IF ADMIN: delete image and title record
+
+- final edits
+
+- deploy to production server (add files and databases)
+
+- submit server link and repo
