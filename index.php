@@ -1,9 +1,12 @@
 <?php
     require "includes/connect.php";
-?>
 
-<p>hi</p>
+    if(isset($_SESSION["email"])) {
+        echo("<p>hi, <em>" . $_SESSION["email"] . "</em></p>");
+    }
+    else {
+        echo("<p>hi</p>");
+    }
 
-<?php
     include "includes/footer.php";
 ?>

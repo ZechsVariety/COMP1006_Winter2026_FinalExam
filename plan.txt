@@ -4,6 +4,7 @@
 - DONE register form
 - DONE register account (no empty fields, valid email, show success/error messages)
 - DONE log in to account
+- DONE indicate you're logged in
 
 - form with image and title
 - upload image and title (success/error messages too)

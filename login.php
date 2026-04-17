@@ -49,8 +49,8 @@
                 session_regenerate_id(true);
 
                 //set session id and username
-                $_SESSION['user_id'] = $user['id'];
-                $_SESSION['username'] = $user['username'];
+                $_SESSION["id"] = $user["id"];
+                $_SESSION["email"] = $user["email"];
 
                 //go to index
                 header("Location: index.php");
