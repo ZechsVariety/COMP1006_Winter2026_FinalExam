@@ -1,15 +1,15 @@
 <?php
     //for xampp
-    $host = "localhost";
+    /* $host = "localhost";
     $db = "Final";
     $user = "root";
-    $password = "";
+    $password = ""; */
 
     //for web server
-    /* $host = "172.31.22.43";
+    $host = "172.31.22.43";
     $db = "Zech200639774";
     $user = "Zech200639774";
-    $password = "fMwq4fW4nl"; */
+    $password = "fMwq4fW4nl";
 
     $dsn = "mysql:host=$host;dbname=$db";
 
