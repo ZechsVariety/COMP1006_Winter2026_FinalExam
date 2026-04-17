@@ -1,4 +1,4 @@
-- set up databases
+- DONE set up databases
 
 - register account (no empty fields, valid email)
 - log in to account
