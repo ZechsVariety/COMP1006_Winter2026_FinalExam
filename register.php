@@ -58,6 +58,23 @@
                 $errors[] = "Email already in use.";
             }
         }
+
+        //add to database
+        if(empty($errors)) {
+            //hash password
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+            $sql = "INSERT INTO usersF (email, password) VALUES (:email, :hashedPassword)";
+            
+            $stmt = $pdo->prepare($sql);
+
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':hashedPassword', $hashedPassword);
+
+            $stmt->execute();
+
+            $success = "Welcome, <em>" . $email . "</em>! You may now log in below.";
+        }
     }
 
     //display errors
@@ -71,6 +88,10 @@
 
         echo("</ul>");
     }
+
+    if($success != "") {
+        echo("<h2>Success!</h2>
+            <p>" . $success . "</p>");
     }
 ?>
 
@@ -88,3 +109,5 @@
 
     <button type="submit">Register</button>
 </form>
+
+<a href="login.php">Login</a>
