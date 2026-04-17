@@ -2,7 +2,7 @@
 
 - DONE connect to database
 - DONE register form
-- register account (no empty fields, valid email, show success/error messages)
+- WIP register account (no empty fields, valid email, show success/error messages)
 - log in to account
 
 - form with image and title
