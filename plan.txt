@@ -1,7 +1,8 @@
 - DONE set up databases
 
 - DONE connect to database
-- register account (no empty fields, valid email)
+- DONE register form
+- register account (no empty fields, valid email, show success/error messages)
 - log in to account
 
 - form with image and title

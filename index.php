@@ -2,4 +2,6 @@
     require "includes/connect.php";
 ?>
 
-hi
+<p>hi</p>
+
+<a href="register.php">Register</a>
